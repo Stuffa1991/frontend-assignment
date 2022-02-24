@@ -8,7 +8,7 @@ function UserProfile({ user }) {
       <div className="user-profile__content">
         <div className="user-profile__username">
           {user.website
-            ? <a className="user-profile__username-link" href={ `${user.website}` }>{ user.username }</a>
+            ? <a className="user-profile__username-link" target="_blank" rel="noreferrer" href={ `http://${user.website}` }>{ user.username }</a>
             : user.username
           }
         </div>
