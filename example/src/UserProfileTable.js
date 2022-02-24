@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import { UserProfile } from "./UserProfile";
 
 // List User profiles
 export function UserProfileTable() {
   const [users, setArray] = useState([]);
 
-  useEffect(() => {
-    async function fetchUsers() {
-      const usersUrl = 'https://jsonplaceholder.typicode.com/users';
-      const fetchedUsers = await fetch(usersUrl);
-      return fetchedUsers.json()
-    }
+  const fetchUsers = useCallback(async () => {
+    const usersUrl = 'https://jsonplaceholder.typicode.com/users';
+    const fetchedUsers = await fetch(usersUrl);
+    return fetchedUsers.json()
+  }, []);
 
+  useEffect(() => {
     fetchUsers().then((fetchedUsers) => {
       setArray([...fetchedUsers]);
     })
-  }, []);
+  }, [fetchUsers]);
 
   return (
     <div className="user-profiles">
