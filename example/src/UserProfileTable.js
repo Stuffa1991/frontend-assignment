@@ -3,18 +3,17 @@ import { UserProfile } from "./UserProfile";
 
 // List User profiles
 export function UserProfileTable() {
-  const [users, setArray] = useState([]);
+  const [users, setUsers] = useState([]);
 
   const fetchUsers = useCallback(async () => {
     const usersUrl = 'https://jsonplaceholder.typicode.com/users';
     const fetchedUsers = await fetch(usersUrl);
-    return fetchedUsers.json()
-  }, []);
+    const userJson = await fetchedUsers.json()
+    setUsers([...userJson]);
+  }, [setUsers]);
 
   useEffect(() => {
-    fetchUsers().then((fetchedUsers) => {
-      setArray([...fetchedUsers]);
-    })
+    fetchUsers().catch(console.log);
   }, [fetchUsers]);
 
   return (
