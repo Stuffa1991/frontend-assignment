@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { UserProfile } from "./UserProfile";
 
 // List User profiles
-export function UserProfiles() {
+export function UserProfileTable() {
   const [users, setArray] = useState([]);
 
   useEffect(() => {

@@ -1,11 +1,11 @@
 import './App.css';
-import { UserProfiles } from "./UserProfiles";
+import { UserProfileTable } from "./UserProfileTable";
 
 function App() {
   return (
     <div className="container">
       <h1>Users</h1>
-      <UserProfiles />
+      <UserProfileTable />
     </div>
   )
 }
