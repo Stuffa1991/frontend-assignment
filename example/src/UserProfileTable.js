@@ -13,7 +13,7 @@ export function UserProfileTable() {
     }
 
     fetchUsers().then((fetchedUsers) => {
-      setArray([...fetchedUsers, []]);
+      setArray([...fetchedUsers]);
     })
   }, []);
 
