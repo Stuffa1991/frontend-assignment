@@ -1,6 +1,10 @@
 html,
 body,
 :root {
+  --mobile-columns: 1;
+  --tablet-columns: 2;
+  --desktop-columns: 4;
+
   height: 100%;
   font-family: Lato, sans-serif;
   font-size: 16px;
@@ -9,12 +13,53 @@ body,
 .container {
   padding: 10px;
   font-size: 1rem;
+  margin: 0 auto;
+  /* TODO: Remove max-width */
+  max-width: 1400px;
 }
 
-.user_profiles {
-
+.user-profiles {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(var(--desktop-columns), 1fr);
 }
 
-.user_profiles__image {
+@media only screen and (max-width: 1024px) {
+  .user-profiles {
+    grid-template-columns: repeat(var(--mobile-columns), 1fr);
+  }
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1399px) {
+  .user-profiles {
+    grid-template-columns: repeat(var(--tablet-columns), 1fr);
+  }
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
   margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+.user-profile__image {
+  border-radius: 50%;
+}
+
+.user-profile__content {
+  padding-left: 5px;
+}
+
+.user-profile__username {
+  display: inline;
+}
+
+.user-profile__username-link {
+  color: #222222;
+}
+
+.user-profile__company-name {
+  color: #999999;
+  display: inline;
 }

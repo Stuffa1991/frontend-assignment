@@ -1,20 +1,19 @@
 import './App.css';
 import users from './data.json';
-import React from 'react';
 
 function UserProfile({ user }) {
   return (
-    <div className="user_profile">
-      <img className={ `user_profile__image` } src="https://placekitten.com/150/150" alt="User image"/>
-      <div className="user_profile__content">
-        <div className="user_profile__username">
+    <div className="user-profile">
+      <img className={ `user-profile__image` } src="https://placekitten.com/150/150" alt="User"/>
+      <div className="user-profile__content">
+        <div className="user-profile__username">
           {user.website
-            ? <a href={ `${user.website}` }>{ user.username }</a>
+            ? <a className="user-profile__username-link" href={ `${user.website}` }>{ user.username }</a>
             : user.username
           }
         </div>
         {user.company &&
-          <div className="user_profile__company_name">
+          <div className="user-profile__company-name">
             ({ user.company.name})
           </div>
         }
@@ -25,7 +24,7 @@ function UserProfile({ user }) {
 
 function UserProfiles({ users }) {
   return (
-    <div className="user_profiles">
+    <div className="user-profiles">
       {users.map((user, index) => (
         <UserProfile key={index} user={user} />
       ))}
@@ -36,6 +35,7 @@ function UserProfiles({ users }) {
 function App() {
   return (
     <div className="container">
+      <h1>Users</h1>
       <UserProfiles users={users} />
     </div>
   )
