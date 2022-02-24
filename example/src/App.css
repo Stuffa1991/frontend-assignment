@@ -14,8 +14,6 @@ body,
   padding: 10px;
   font-size: 1rem;
   margin: 0 auto;
-  /* TODO: Remove max-width */
-  max-width: 1400px;
 }
 
 .user-profiles {
@@ -38,9 +36,12 @@ body,
 
 .user-profile {
   display: flex;
+  flex-direction: row;
   align-items: center;
   margin-right: 20px;
   margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .user-profile__image {
@@ -49,6 +50,9 @@ body,
 
 .user-profile__content {
   padding-left: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .user-profile__username {
@@ -60,6 +64,7 @@ body,
 }
 
 .user-profile__company-name {
+  padding-left: 5px;
   color: #999999;
   display: inline;
 }
